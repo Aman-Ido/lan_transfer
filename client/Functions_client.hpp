@@ -221,7 +221,10 @@ bool func::client::result::r_transfer_file (BundleManager_client* i_bun ) {
   */
   std::string t_string = i_bun -> string1;
   
-  i_bun -> string1[i_bun -> string_size] = '\0';
+  /*
+  	i_bun -> string1[i_bun -> string_size] = '\0';
+  	this line makes it crash in linux system.
+  */
   
   // opening the file with the dest-name
   std::fstream t_file;
