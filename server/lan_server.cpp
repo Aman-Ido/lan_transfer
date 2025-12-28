@@ -70,7 +70,7 @@ int main (int argc, char** argv) {
   // quiting
   func::quit_library ();
   
-  getchar ();
+  
   
   return 0;
 }

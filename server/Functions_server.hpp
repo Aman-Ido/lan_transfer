@@ -194,14 +194,14 @@ void func::server::transfer_file (BundleManager_server* i_bun) {
   
   // opening the file
   std::fstream t_file;
-  t_file.open (i_bun -> file_name, std::ios::in);
+  t_file.open (i_bun -> file_name, std::ios::in | std::ios::binary);
     
     t_file.read (i_bun -> string1, i_bun -> string_size);
   
   t_file.close ();
   
   // convert the string to char*
-  i_bun -> string1[i_bun -> string_size] = '\0';
+  // i_bun -> string1[i_bun -> string_size] = '\0';
   
   // loading the apcket
   if (!i_bun -> packet1 -> load_packet (i_bun -> string1, &i_bun -> client_ip, i_bun -> string_size)) {
@@ -252,7 +252,7 @@ void func::server::setup_file_name (BundleManager_server* i_bun, std::string i_v
 
 void func::server::return_file_size (BundleManager_server* i_bun) {
   // getting the file size
-  int l_file_size = func::get_file_size (i_bun, i_bun -> file_name) + 1; // for '0'
+  int l_file_size = func::get_file_size (i_bun, i_bun -> file_name); // for '0'
   
   // convering integer to std::string
   std::string a = std::to_string (l_file_size);

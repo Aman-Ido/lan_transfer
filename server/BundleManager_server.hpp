@@ -6,7 +6,8 @@ class BundleManager_server {
     ServerManager* server1;
     PacketManager* packet1;
     
-    char* string1; // this string will only be used to transfer data 
+    // char* string1; // this string will only be used to transfer data 
+    char* string1;
     int string_size = 50; // default value - this is also the packet size
     
     std::string file_name; // to store the file name
